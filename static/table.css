@@ -1,0 +1,26 @@
+/* body {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+table td,
+table th {
+  text-overflow: wrap;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+thead th,
+tbody th {
+  color: #ff0000;
+}
+
+tbody td {
+  font-weight: 500;
+  color: rgba(255,255,255,.65);
+}
+
+.card {
+  border-radius: .5rem;
+} */

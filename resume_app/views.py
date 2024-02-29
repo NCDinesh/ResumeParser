@@ -23,7 +23,8 @@ def parse_resumes(request):
             doc = nlp(text)
             entities = [{'text': ent.text, 'label': ent.label_} for ent in doc.ents]
             entities_list.append(entities)
+            print(entities_list)
 
-        return render(request, 'result_multiple.html', {'entities_list': entities_list})
+        return render(request, 'table.html', {'entities_list': entities_list})
 
-    return render(request, 'parse_resume.html')
+    return render(request, 'index.html')
