@@ -1,5 +1,3 @@
-# views.py
-
 from django.shortcuts import render
 from django.http import HttpResponse
 import spacy
@@ -22,9 +20,9 @@ def parse_resumes(request):
                 text = text + str(page.get_text())
             doc = nlp(text)
             entities = [{'text': ent.text, 'label': ent.label_} for ent in doc.ents]
-            entities_list.append(entities)
-            print(entities_list)
+            entities_list.extend(entities)
 
-        return render(request, 'table.html', {'entities_list': entities_list})
+        # Pass both entities_list and entitiesListFromDjango to the template
+        return render(request, 'table.html', {'entities_list': entities_list, 'entitiesListFromDjango': entities_list})
 
     return render(request, 'index.html')
