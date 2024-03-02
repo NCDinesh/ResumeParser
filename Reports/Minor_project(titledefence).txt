@@ -1,0 +1,291 @@
+\documentclass[a4paper, 12pt]{report}
+
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\setstretch{1.5}
+
+\geometry{margin=1in}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries \thechapter\quad #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\begin{document}
+
+\begin{center}
+
+\textbf{ \Large \MakeUppercase{Tribhuwan University\\
+Institute of Engineering\\}
+PURWANCHAL CAMPUS\\}  
+\end{center}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{purwanchal.png}
+
+\end{figure}
+
+\begin{center}
+{\large A THIRD YEAR MINOR PROJECT PROPOSAL\\ ON \\ ''RESUME PARSER"} 
+\end{center}
+
+\vspace{3em}
+\begin{center}
+\underline{SUBMITTED TO:} \\
+DEPARTMENT OF COMPUTER AND ELECTRONICS
+
+\vspace{3em}
+
+\end{center}
+
+
+\begin{center}
+\underline{SUBMITTED BY:} \\
+  \MakeUppercase{Dinesh Nepal (PUR077BCT033) \\
+  Bishwas Raj Koirala (PUR077BCT029) \\
+  Bhuwan Ojha(PUR077BCT020)\\
+  Kushal Poudel (PUR077BCT043) }\\
+  \vspace{3em}
+  
+  4 JANUARY,2024
+ 
+\end{center}
+\thispagestyle{empty}
+
+\newpage
+\begin{center}
+ \section*{ACKNOWLEDGEMENTS}   
+\end{center}
+
+ \begin{justify}
+
+\noindent We express our sincere appreciation to the Head of the Department (HOD), Mr. Pravin
+Sangroula and the Deputy Head of the Department, Mr. Pukar Karki for their invaluable
+guidance, insightful suggestions,constructive feedback, and continuous support
+throughout the preparation of this proposal. We would like to express our sincere gratitude to Mr. Kshitiz Regmi, a highly skilled Machine Learning Engineer, whose invaluable contributions significantly enhanced the success of this project. \\
+
+\noindent We are deeply thankful to the esteemed teachers and faculty members whose valuable
+feedback, encouragement, and scholarly insights have enriched this proposal. Their
+dedication to academic excellence and commitment to fostering knowledge have been a
+source of inspiration. Their collective guidance have immensely contributed to the
+refinement and improvement of this proposal.
+     
+ \end{justify}
+\thispagestyle{empty}
+
+
+\newpage 
+\begin{center}
+\section*{ABSTRACT}    
+\end{center}
+
+\begin{justify}
+    
+\noindent The Resume Parser project represents a breakthrough in simplifying the resume screening process through advanced Natural Language Processing (NLP) techniques, specifically utilizing Spacy for Named Entity Recognition (NER).Spacy is an open-source software library for advanced natural language processing.  \\
+
+\noindent The primary goal of this project is to streamline the extraction of crucial information from resumes, providing a concise and structured summary.This technology aims to enhance the efficiency of resume evaluation, enabling quick and informed decision-making for recruiters and human resources professionals.
+
+\end{justify}
+
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents()
+\thispagestyle{empty}
+
+
+\listoffigures()
+\thispagestyle{empty}
+
+\chapter{INTRODUCTION}
+\setcounter{page}{1}
+\section{INTRODUCTION}
+In the ever-evolving landscape of talent acquisition and recruitment, the ability to swiftly and accurately evaluate a multitude of resumes is paramount. The Resume Parser project emerges as a technological milestone, introducing a groundbreaking solution to streamline the traditionally intricate process of resume screening.\\
+
+\noindent Harnessing the power of advanced Natural Language Processing (NLP) techniques, with a specific emphasis on the formidable Spacy library for Named Entity Recognition (NER), this project seeks to redefine the efficiency and precision of extracting essential information from resumes. The essence of our endeavor lies in providing a comprehensive, yet concise, summary of resumes, covering critical facets such as names, skills, educational qualifications, and professional experiences.\\
+
+\noindent This project's significance is underscored by its potential to revolutionize the hiring process, offering recruiters and human resources professionals a tool that not only expedites resume evaluation but also enhances decision-making through intelligent entity extraction. As we delve into the intricacies of the Resume Parser, we embark on a journey to reshape the landscape of resume analysis, setting new standards for efficiency and effectiveness in the realm of talent acquisition.
+
+\newpage
+
+\section{PROBLEM STATEMENT}
+The manual parsing of resumes is time-consuming and prone to errors. HR professionals often spend significant hours extracting relevant details from resumes, leading to delays in the hiring process. Our project seeks to eliminate this bottleneck by automating the extraction process.
+
+\section{OBJECTIVES}
+\begin{enumerate}
+    \item Develop a resume parser using ML NER to automate the extraction of key information from resumes.
+    \item Enhance recruitment efficiency by accurately identifying and categorizing entities, streamlining the candidate screening process
+\end{enumerate}
+
+\section{PROJECT SCOPE}
+\textbf{Resume Ranking System:} \\
+Utilize the extracted summary data to develop a dynamic resume ranking system for HR recruiters. By incorporating relevant factors such as skills, education, and experiences, the system can intelligently prioritize and present resumes, aiding recruiters in identifying top candidates efficiently\\
+
+\noindent \textbf{Job Recommendation System::} \\
+Leverage the skillsets extracted from resumes to create a job recommendation system. This system can match candidate profiles with open positions, providing recruiters with tailored suggestions based on the candidate's expertise, thereby streamlining the job matching process.\\
+
+\noindent \textbf{Customized Interview Questions:}\\
+Utilize the extracted information to generate customized interview questions tailored to the specific skills and experiences of each candidate. This ensures that the interview process is focused and relevant, providing a deeper understanding of the candidate's suitability for the role.\\
+
+\newpage
+\noindent \textbf{Career Pathway Recommendations:}\\
+Develop a feature that suggests potential career pathways for candidates based on their skills and experiences. This could include recommending additional certifications, training programs, or lateral moves within the organization, promoting career development and growth.
+
+
+
+\chapter{LITERATURE REVIEW}
+\section{RELATED THEORIES}
+\noindent \textbf{Natural Language Processing:}\\
+Natural language processing (NLP) refers to the branch of computer science—and more specifically, the branch of artificial intelligence or AI—concerned with giving computers the ability to understand text and spoken words in much the same way human beings can.\\
+
+\noindent \textbf{Named Entity Recognition}\\
+Named-entity recognition (NER) also known as named entity identification, entity chunking, and entity extraction is a sub-task of information extraction that seeks to locate and classify named entities mentioned in unstructured text into pre-defined categories such as person names, organizations, locations, medical codes, time expressions, quantities, monetary values, percentages, etc.\\
+
+\noindent \textbf{Spacy}\\
+Spacy is an open-source natural language processing (NLP) library designed for efficient and practical implementation of various NLP tasks. It is written in Python and provides pre-trained models and tools for processing and analyzing human language.\\
+
+
+
+\newpage
+\section{RELATED WORK}
+\begin{enumerate}
+    \item Narendra G.O. and Hashwanth S. prepared a research paper on International Journal of Advanced Research in Science, Communication and Technology(IJARSCT) named "Named Entity Recognition based Resume Parser and Summarizer" on 1 March, 2022 \cite{r1}
+    \item Dipti Suhas Chavare and Archana Bhaskar Patil wrote a research paper on Grenze International Journal of Engineering \& Technology (GIJET) named "Resume Parsing using Natural Languauge"  on 2023 \cite{r2}
+    \item Vrinda Mittal, Priyanshu Mehta, Devanjali Relan and Goldie Gabrani prepared a research paper on Journal of Statistics and Management Systems named "Methodology for resume parsing and job domain prediction" on 2020 \cite{r3}
+    
+\end{enumerate}
+
+\chapter{REQUIREMENT ANALYSIS}
+
+\section{FUNCTIONAL REQUIREMENTS}
+
+Functional requirements describe what a system is supposed to accomplish. They define the specific features, capabilities, and functionalities that the system must have to meet the needs of its users. Functional requirements focus on "what" the system should do.These are our functional requirements of our projects. \\
+\begin{enumerate}
+    \item \textbf{File Upload:}\\
+    The system allows users to upload resumes in popular formats such as PDF and DOCX so that the user could get the summary of the resume.\\
+    
+    \item \textbf{Resume Parsing}\\
+    The system categorizes entities such as names, skills, educational qualifications, and experiences from the resume using the trained model that is trained from different datasets collected from various sources.\\
+
+    \item \textbf{Resume Summary Generation:}\\
+    The system generates a structured summary for each uploaded resume, presenting extracted information in a clear and organized manner.
+    
+\end{enumerate}
+
+\newpage
+\section{NON-FUNCTIONAL REQUIREMENTS}
+Non-functional requirements define the qualities or attributes that describe how the system should behave. They focus on characteristics such as performance, usability, security, and reliability. Non-functional requirements provide constraints and criteria for the system's overall behavior. Some of the non-functional requirements of our pojects are as follows:\\
+
+\begin{enumerate}
+    \item \textbf{Availability}\\
+    The system is available for use 24 hours without planned downtime.\\
+
+    \item \textbf{User Friendly}\\
+    The system has easy to use user interface, requires minimal training for users.\\
+
+    \item\textbf{Compatibility:}\\
+    The system is compatible with common browsers, operating systems, and devices.\\
+
+    \item\textbf{Data Backup and Recovery:}
+    The system ensures data recovery in case of system failures or data loss.
+    
+    
+    
+\end{enumerate}
+
+\chapter{METHODOLOGY}
+Methodology refers to a set of principles, practices, and procedures followed in a particular discipline, such as project management, software development, or research. It provides a structured approach to planning, executing, and controlling processes to achieve specific goals. \\
+
+\noindent We have chosen to adopt the incremental model for our project, leveraging its distinct features to ensure a systematic and flexible development process.In this approach, we plan to break down the development of our resume parser into smaller, manageable parts called increments.
+
+\section{REQUIREMENT ANALYSIS}
+We're figuring out exactly what our resume parser needs to do. Talking to recruiters, we're finding out what info is important—like names and skills. We're making a detailed plan (like a to-do list) that prioritizes these features, so we know what to work on first.
+
+\section{DESIGN \& DEVELOPMENT}
+Following requirement analysis, we're building the resume parser step by step. We're creating a design that can handle different types of resumes and making it easy for people to use. We start with the basics, like getting names and skills right, and then add more cool features based on what recruiters need. It's like building blocks—one piece at a time.        
+
+\newpage
+\section{TESTING}
+The testing phase ensures the reliability and functionality of each increment developed. Comprehensive testing, including unit testing, integration testing, and user acceptance testing, is conducted to identify and address any defects or issues. Test cases and reports are generated, providing verified and validated increments ready for deployment.
+
+\section{IMPLEMENTATION}
+In the implementation phase, the resume parser is deployed into the production environment. Each increment is deployed systematically, and training materials are provided to end-users. Ongoing support and maintenance plans are established to address any post-implementation issues, ensuring a smooth transition and successful deployment of the resume parser. This phase marks the culmination of the project, with the delivered system meeting the outlined objectives and requirements.
+
+\chapter{TOOLS AND TECHNOLOGY USED:}
+To achieve the goals outlined in our resume parser project, we will leverage a combination of advanced tools and techniques. The integration of these elements will ensure the development of a robust and efficient system.
+
+\begin{enumerate}
+
+
+\item \textbf{Machine Learning and Named Entity Recognition (NER):} \\
+\underline{Tool:} Python-based library Spacy\\
+ \underline{Technique:} Implementing pre-trained NER models for accurate extraction of entities such as names, skills, and experiences from resumes. Fine-tuning the models to enhance performance on specific resume data. 
+
+ \item \textbf{Front-End Development:} \\
+\underline{Tool: }React.js\\
+\underline{Technique:} Creating an intuitive user interface that allows users to interact seamlessly with the resume parser. Incorporating features like drag-and-drop functionality for resume uploads and real-time feedback on extracted information.\\
+
+\item \textbf{Back-End Development:}\\
+\underline{Tool:}Django (Python web framework)\\
+\underline{Technique:} Developing a robust backend that handles data processing, storage, and communication with the front end. Integrating the NER models into the backend to ensure efficient parsing of resume content.
+
+\newpage
+\item \textbf{Database Management:}\\
+\underline{Tool: }Github\\
+\underline{Technique:}   Storing parsed data in a relational database for easy retrieval and analysis. Ensuring data security and integrity through proper database design.\\
+
+\item \textbf{Database Management:}\\
+\underline{Tool: }Github\\
+\underline{Technique:}  Utilizing version control to manage collaborative development, track changes, and facilitate seamless integration of new features. GitHub or GitLab will be used as the hosting platform.\\
+
+\item \textbf{Presentation and Report}\\
+\underline{Tool: }Overleaf and Google Slides\\
+\underline{Technique:}  Overleaf is employed for creating and collaborating on report writing, leveraging its LaTeX capabilities for document structuring and version control. Simultaneously, Google Slides is used for creating and collaborating on presentations, providing a cloud-based platform for real-time editing and seamless teamwork. 
+
+
+\end{enumerate}
+
+\chapter{SYSTEM DESIGN}
+\section{SYSTEM OVERVIEW}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{system_architecture.png}
+    \caption{System Diagram}
+\end{figure}
+\newpage
+
+\section{USECASE DIAGRAM}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{tu.png}
+  \caption{Usecase Diagram}
+\end{figure}
+\newpage
+
+\chapter{GANTT CHART}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{gantt_chart.png}
+    \caption{Gantt Chart}
+\end{figure}
+
+\chapter{EXPECTED OUTCOMES}
+
+\lipsum[15]
+
+\bibliography{references}
+\bibliographystyle{IEEEtran}
+
+\end{document}
+
