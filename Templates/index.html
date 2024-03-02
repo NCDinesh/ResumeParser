@@ -20,8 +20,9 @@
 </head>
 
 <body>
-    <!-- Responsive navbar-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="main_container bg-dark" style="height: 100vh; ">
+        <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="box-shadow: 0 2px 5px grey;">
         <div class="container px-5 py-3">
             <a class="navbar-brand" href="#!" style="font-size: 30px">Resume Parser.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -29,8 +30,8 @@
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!" style="font-size: 22px; padding-right: 20px;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blogs" style="font-size: 22px">Blogs</a></li>
 
 
                 </ul>
@@ -38,33 +39,36 @@
         </div>
     </nav>
     <!-- Header-->
-    <header class="bg-dark py-5" style="height: 100vh;">
+    <header class="bg-dark py-5">
         <div class="container px-5">
             <div class="row gx-5 justify-content-center">
                 <div class="col-lg-6">
                     <div class="text-center my-5">
-                        <h1 class="display-5 fw-bolder text-white mb-2" style="font-family: 'Poppins', sans-serif;">Parse your Resume Fast and Efficiently</h1>
 
-                        <div class="container mt-0 container-main">
+                        <h1 class="display-6 fw-bolder text-white mb-2" style="font-family: 'Poppins', sans-serif; padding-top: 10px"> Parse your Resume Fast and Efficiently</h1>
+
+                        <div class="container mt-0 container-main bg-dark p-5">
                             <div class="row justify-content-center">
-                                <div class="col-md-6">
-                                    <div class=" bg-dark card">
-                                    <form method="post" enctype="multipart/form-data" action="{% url 'parse_resumes' %}"> //yesma url ani form ma hunu paryo
-                                            {% csrf_token %}    //csrf necessary
+                                <div class="col-md-8"style="margin: 15px 40px">
+                                    <div class="card bg-dark text-light" style="padding: 20px 40px">
+
+                         <form method="post" enctype="multipart/form-data" action="{% url 'parse_resumes' %}"> 
+                                            {% csrf_token %}    
                                         <div class="card-body">
-                                            <h5 class="card-title">Upload PDF</h5>
-                                            <div class="input-group mb-3">
-                                                <label class="input-group-text" for="pdfUpload">
-                                                    <i class="bi bi-file-earmark-pdf"></i>
-                                                    <!-- <span>Choose File</span> -->
+                                            <div class="text-center mb-3">
+                                                <label for="pdfUpload" class="form-label d-block"
+                                                    style="font-size: 1.5rem; padding: 0.5rem 1rem; cursor: pointer; border: 1px solid grey;">
+                                                    <i class="bi bi-file-earmark-arrow-up" style="font-size: 25px;"></i>
+                                                    <span style="margin-left: 0.5rem;">Choose File</span>
                                                 </label>
-                                                <input type="file" class="form-control" id="pdfUpload" name="resumes" accept=".pdf" // yo line
-                                                    multiple>
+                                                <input type="file" class="form-control visually-hidden" id="pdfUpload" name="resumes"
+                                                    accept=".pdf" multiple>
+                                                <div class="mt-2 text-light" id="fileNameDisplay"></div>
                                             </div>
-                                            <div class="mb-3" id="fileNameDisplay"></div>
-                                            <button type="submit" class="btn btn-primary" id="parseBtn">Parse</button>
+                                            <button type="submit" class="btn btn-primary d-block mx-auto"
+                                                id="parseBtn">Parse</button>
                                         </div>
-                                    </form>
+                                 </form>
                                     </div>
                                 </div>
                             </div>
@@ -75,280 +79,209 @@
             </div>
         </div>
     </header>
+    </div>
+    
     <!-- Blog section -->
 
-    <h1 class=" px-5 py-3 " id="blogs">Information Technology</h1>
+    <h1 class="px-5 py-5" id="blogs">Information Technology</h1>
 
     <section class="wrapper">
-
-        <div class="container-fostrap">
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://techcrunch.com/">
-                                    <img
-                                        src="https://techcrunch.com/wp-content/uploads/2018/03/new-tc-hero.jpg?w=730&crop=1" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://techcrunch.com/">
-                                            Tech Crunch
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        TechCrunch is a leading technology media property, dedicated to obsessively
-                                        profiling startups, reviewing new Internet products, and breaking tech news. ...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://techcrunch.com/" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://techcrunch.com/">
+                            <img src="https://techcrunch.com/wp-content/uploads/2018/03/new-tc-hero.jpg?w=730&crop=1" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://techcrunch.com/">Tech Crunch</a>
+                            </h4>
+                            <p class="">
+                                TechCrunch is a leading technology media property, dedicated to obsessively profiling startups...
+                            </p>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://stackoverflow.blog/">
-                                    <img
-                                        src="https://harshal.one/img/blog/i-no-longer-answer-on-stackoverflow/main.png" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://stackoverflow.blog/">
-                                            Stack Overflow</a>
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Stack Overflow is a popular Q&A platform for programmers and developers. Their
-                                        blog features articles on IT trends, best practices, and tutorials. ...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://stackoverflow.blog/" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="card-read-more">
+                            <a href="https://techcrunch.com/" class="btn btn-link btn-block">Read More</a>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://medium.com/">
-                                    <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaH3IdjCVzAUnpIAiPK2ESRIGfvygYSM_14CKmnrhLnw&s" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://medium.com/">
-                                            Medium
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Medium is a popular online publishing platform where users can read and write
-                                        articles on a wide range of topics, including technology, business, science, and
-                                        more....
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://medium.com/" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://stackoverflow.blog/">
+                            <img src="https://harshal.one/img/blog/i-no-longer-answer-on-stackoverflow/main.png" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://stackoverflow.blog/">Stack Overflow</a>
+                            </h4>
+                            <p class="">
+                                Stack Overflow is a popular Q&A platform for programmers and developers. Their blog features articles on IT...
+                            </p>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="https://stackoverflow.blog/" class="btn btn-link btn-block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://medium.com/">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaH3IdjCVzAUnpIAiPK2ESRIGfvygYSM_14CKmnrhLnw&s" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://medium.com/">Medium</a>
+                            </h4>
+                            <p class="">
+                                Medium is a popular online publishing platform where users can read and write articles on a wide range....
+                            </p>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="https://medium.com/" class="btn btn-link btn-block">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <div class="underline"></div>
-
-
-
-
-    <h1 class=" px-5 py-3 ">Business</h1>
-
+    
+    <h1 class="px-5 py-5">Business</h1>
+    
     <section class="wrapper">
-        <div class="container-fostrap">
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://www.indeed.com/">
-                                    <img src="https://i.ytimg.com/vi/9gqsnA2Lk-0/hqdefault.jpg" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://www.indeed.com/">
-                                            Indeed
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Indeed is a leading job search engine that aggregates job listings from various
-                                        sources, including company websites, job boards, and recruitment agencies. ...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://www.indeed.com/" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://www.indeed.com/">
+                            <img src="https://i.ytimg.com/vi/9gqsnA2Lk-0/hqdefault.jpg" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://www.indeed.com/">Indeed</a>
+                            </h4>
+                            <p class="">
+                                Indeed is a leading job search engine that aggregates job listings from various sources, including company websites....
+                            </p>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://www.bloomberg.com/asia">
-                                    <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3brVPT6i7Wsetwja_uttJ30UH4GM1Kx24mAtxY3fDLQ&s" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://www.bloomberg.com/asia">
-                                            Bloomberg
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Bloomberg is a global financial and media company that provides business news,
-                                        data, and analysis. Its website offers a wealth of information on financial
-                                        markets, economic trends, and corporate developments....
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://www.bloomberg.com/asia" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="card-read-more">
+                            <a href="https://www.indeed.com/" class="btn btn-link btn-block">Read More</a>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://www.businessinsider.com/">
-                                    <img
-                                        src="https://cdn.techinasia.com/wp-content/uploads/2014/02/Business-Insider-signs-China-content-deal-and-that-shows-Chinese-web-media-is-growing-up.jpg" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://www.businessinsider.com/">
-                                            Business Insider
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Business Insider is a popular business news website that covers a wide range of
-                                        topics, including finance, technology, politics, and lifestyle. It features
-                                        breaking news, analysis, and commentary on the latest business developments. ...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://www.businessinsider.com/" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://www.bloomberg.com/asia">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3brVPT6i7Wsetwja_uttJ30UH4GM1Kx24mAtxY3fDLQ&s" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://www.bloomberg.com/asia">Bloomberg</a>
+                            </h4>
+                            <p class="">
+                                Bloomberg is a global financial and media company that provides business news, data, and analysis. Its website....
+                            </p>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="https://www.bloomberg.com/asia" class="btn btn-link btn-block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://www.businessinsider.com/">
+                            <img src="https://cdn.techinasia.com/wp-content/uploads/2014/02/Business-Insider-signs-China-content-deal-and-that-shows-Chinese-web-media-is-growing-up.jpg" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://www.businessinsider.com/">Business Insider</a>
+                            </h4>
+                            <p class="">
+                                Business Insider is a popular business news website that covers a wide range of topics, including finance, technology.....
+                            </p>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="https://www.businessinsider.com/" class="btn btn-link btn-block">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <div class="underline"></div>
-
-
-    <h1 class=" px-5 py-3 ">News</h1>
-
+    
+    <h1 class="px-5 py-5">News</h1>
+    
     <section class="wrapper">
-        <div class="container-fostrap">
-            <div class="content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://www.reuters.com/world">
-                                    <img
-                                        src="https://www.shutterstock.com/image-photo/galati-roamania-february-14-photo-260nw-189164138.jpg" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://www.reuters.com/world">
-                                            Reuters
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Reuters is a global news organization known for its unbiased reporting and
-                                        extensive coverage of international news, finance, politics, and more. Their
-                                        website offers real-time news updates, multimedia content ...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://www.reuters.com/world" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://www.reuters.com/world">
+                            <img src="https://www.shutterstock.com/image-photo/galati-roamania-february-14-photo-260nw-189164138.jpg" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://www.reuters.com/world">Reuters</a>
+                            </h4>
+                            <p class="">
+                                Reuters is a global news organization known for its unbiased reporting and extensive coverage of international...
+                            </p>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://www.aljazeera.com/news/">
-                                    <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvW6WoQHtwQ30rAfCdJ4jdDPdnA1AtadyKHq-gV6EI1g&s" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://www.aljazeera.com/news/">
-                                            Al Jazeera
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        Al Jazeera is an international news organization based in Qatar that provides
-                                        extensive coverage of global events, particularly in the Middle East and North
-                                        Africa...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://www.aljazeera.com/news/" class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="card-read-more">
+                            <a href="https://www.reuters.com/world" class="btn btn-link btn-block">Read More</a>
                         </div>
-                        <div class="col-xs-12 col-sm-4">
-                            <div class="card">
-                                <a class="img-card" href="https://www.theguardian.com/world ">
-                                    <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1zixkTuF8EgIWFhJWjstTk37ddAwXKTSW92bBsymoA&s" />
-                                </a>
-                                <div class="card-content">
-                                    <h4 class="card-title">
-                                        <a href="https://www.theguardian.com/world ">
-                                            The Guardian
-                                        </a>
-                                    </h4>
-                                    <p class="">
-                                        The Guardian is a British news organization known for its independent journalism
-                                        and progressive viewpoints. Their website offers a wide range of world news
-                                        coverage, including breaking news, investigative reports, opinion pieces...
-                                    </p>
-                                </div>
-                                <div class="card-read-more">
-                                    <a href="https://www.theguardian.com/world " class="btn btn-link btn-block">
-                                        Read More
-                                    </a>
-                                </div>
-
-                            </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://www.aljazeera.com/news/">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvW6WoQHtwQ30rAfCdJ4jdDPdnA1AtadyKHq-gV6EI1g&s" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://www.aljazeera.com/news/">Al Jazeera</a>
+                            </h4>
+                            <p class="">
+                                Al Jazeera is an international news organization based in Qatar that provides extensive coverage of global events...
+                            </p>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="https://www.aljazeera.com/news/" class="btn btn-link btn-block">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <a class="img-card" href="https://www.theguardian.com/world">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ1zixkTuF8EgIWFhJWjstTk37ddAwXKTSW92bBsymoA&s" />
+                        </a>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="https://www.theguardian.com/world">The Guardian</a>
+                            </h4>
+                            <p class="">
+                                The Guardian is a British news organization known for its independent journalism and progressive viewpoints. Their website offers...
+                            </p>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="https://www.theguardian.com/world" class="btn btn-link btn-block">Visit Site</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
+    
     <style>
+        .wrapper {
+            padding-top: 3rem;
+            padding-bottom: 5rem;
+        }
+    
         .underline {
             height: 1px;
             width: 70%;
@@ -357,7 +290,35 @@
             margin-bottom: 10px;
             box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
         }
+    
+        .card {
+            transition: 0.3s;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .card:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+    
+        .card-content {
+            padding: 20px;
+        }
+    
+        .card-title a {
+            color: #333;
+            text-decoration: none;
+        }
+    
+        .card-title a:hover {
+            color: #007bff;
+        }
+    
+        .card-read-more {
+            padding: 0 20px 20px;
+        }
     </style>
+    
 
 
     <!-- Footer-->
