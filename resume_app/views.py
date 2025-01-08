@@ -4,12 +4,12 @@ import spacy
 import fitz
 import os
 
-nlp = spacy.load(r'C:\Users\deene\OneDrive\Documents\Minor_Project\model\output\model-best')  # Path to your trained model
+nlp = spacy.load('D:\Minor Project and Major project\Minor_Project\model\output80\model-best')  # Path to your trained model
 
 def parse_resumes(request):
     if request.method == 'POST' and request.FILES.getlist('resumes'):
         resume_files = request.FILES.getlist('resumes')
-        path = r'C:\Users\deene\OneDrive\Documents\Minor_Project\test'
+        path = r'D:\Minor Project and Major project\Minor_Project\test'
         entities_list = []
 
         for resume_file in resume_files:
